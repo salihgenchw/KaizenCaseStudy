@@ -10,7 +10,24 @@ const { width, height } = Dimensions.get("window");
 
 function BottomTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: "white",
+          borderTopWidth: 0,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+          elevation: 5,
+          borderTopLeftRadius: 25,
+          borderTopRightRadius: 25,
+        },
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={HomeScreen}

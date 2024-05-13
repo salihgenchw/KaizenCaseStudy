@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   logoContainer: {
-    flex: 1.2,
+    flex: 1.1,
   },
   userContainer: {
     flexDirection: "row",
