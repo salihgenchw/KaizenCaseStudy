@@ -1,17 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { NavigationContainer } from '@react-navigation/native';
-import BottomTabs from './src/navigation/BottomTabs/BottomTabs';
-import GeneralStatusBarColor from './src/components/GeneralStatusBar';
-
-
+import GeneralStatusBarColor from "./src/components/GeneralStatusBar";
+import Navigation from "./src/navigation/Navigation";
 
 export default function App() {
   return (
     <>
-    <GeneralStatusBarColor backgroundColor="#000" barStyle="light-content" />
-    <NavigationContainer>
-      <BottomTabs />
-    </NavigationContainer>
+      <GeneralStatusBarColor backgroundColor="#000" barStyle="light-content" />
+      <Navigation />
     </>
   );
 }

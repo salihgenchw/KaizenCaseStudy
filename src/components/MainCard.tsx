@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   Image,
   StyleSheet,
@@ -8,7 +9,8 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 import ApiService from "../api/ApiService";
 import DefaultColors from "../constans/DefaultColors";
 
@@ -22,7 +24,15 @@ interface Promotion {
   Title: string;
 }
 
+interface DetailNavigationProps {
+  DetailStack: {
+    itemId: string;
+  };
+}
+
 const MainCard: React.FC = () => {
+  const navigation =
+    useNavigation<StackNavigationProp<DetailNavigationProps>>();
   const [promotions, setPromotions] = useState<Promotion[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -44,7 +54,6 @@ const MainCard: React.FC = () => {
   };
 
   const extractTextFromHtml = (html: string) => {
-    //html taglarinden ayırdım ve &uuml; karakterini ü harfine çevirdim
     const strippedString = html.replace(/<[^>]+>/g, "");
     return strippedString.replace(/&uuml;/g, "ü");
   };
@@ -58,7 +67,14 @@ const MainCard: React.FC = () => {
           data={promotions}
           renderItem={({ item }) => (
             <>
-              <TouchableOpacity style={styles.promotionCard}>
+              <TouchableOpacity
+                style={styles.promotionCard}
+                onPress={() => {
+                  navigation.navigate("DetailStack", {
+                    itemId: item.Id.toString(),
+                  });
+                }}
+              >
                 <Image
                   source={{ uri: item.ImageUrl }}
                   style={styles.promotionImage}
@@ -104,7 +120,6 @@ const MainCard: React.FC = () => {
           }}
         />
       )}
-
       <View
         style={{
           flexDirection: "row",
