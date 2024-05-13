@@ -11,6 +11,6 @@ export default GeneralStatusBarColor;
 
 const styles = StyleSheet.create({
   statusBar: {
-    height: Platform.OS === "ios" ? STATUSBAR_HEIGHT : 0,
+    height: STATUSBAR_HEIGHT,
   },
 });
