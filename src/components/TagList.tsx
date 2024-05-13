@@ -43,6 +43,9 @@ const TagList: React.FC = () => {
           keyExtractor={(item) => item.Id}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingHorizontal: 5,
+          }}
         />
       )}
     </>
