@@ -58,7 +58,7 @@ const MainCard: React.FC = () => {
           data={promotions}
           renderItem={({ item }) => (
             <>
-              <View style={styles.promotionCard}>
+              <TouchableOpacity style={styles.promotionCard}>
                 <Image
                   source={{ uri: item.ImageUrl }}
                   style={styles.promotionImage}
@@ -83,7 +83,7 @@ const MainCard: React.FC = () => {
                     Daha Daha
                   </Text>
                 </TouchableOpacity>
-              </View>
+              </TouchableOpacity>
               <View
                 style={[
                   styles.footerView,
