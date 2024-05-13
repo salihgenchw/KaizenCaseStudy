@@ -1,20 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import BottomTabs from './src/navigation/BottomTabs/BottomTabs';
+import GeneralStatusBarColor from './src/components/GeneralStatusBar';
+
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Kaizen!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+    <GeneralStatusBarColor backgroundColor="#000" barStyle="light-content" />
+    <NavigationContainer>
+      <BottomTabs />
+    </NavigationContainer>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
